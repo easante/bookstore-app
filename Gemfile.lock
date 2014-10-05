@@ -48,6 +48,9 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
+    fabrication (2.11.3)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.3)
     formatador (0.2.5)
     guard (2.6.1)
@@ -89,6 +92,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -176,9 +181,13 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.4.1)
   coffee-rails (~> 4.0.0)
+  fabrication (= 2.11.3)
+  faker
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  pry (= 0.10.0)
+  pry-nav (= 0.2.4)
   rails (= 4.1.1)
   rb-fsevent
   rspec-rails (= 2.14.1)
