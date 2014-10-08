@@ -1,0 +1,128 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: #0D2C40; /*#C879B2; */
+  color: #fff;
+  font-family: Georgia, Times, serif;
+}
+
+.content {
+/*  border-left: 2px solid #F7F7F7;
+  border-right: 2px solid #F7F7F7; */
+  margin-top: 0px;
+  border-right: 2px solid #F7F7F7;
+}
+
+.sidebar-link {
+  list-style-type: none;
+  padding-left: 10px;
+  margin-top: 0px;
+}
+
+.sidebar-link li {
+  padding-bottom: 10px;
+}
+
+.sidebar-hr {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.sidebar-header {
+  margin-left: 10px;
+}
+
+.left, .inner {
+    padding: 1em;
+}
+
+#left-content, #right-content {
+  border-radius: 8px;
+  background: #F7F7F7;
+  padding: 0.075em 1em 0.5em 1em;
+  margin-top: 15px;
+/*  border: 2px solid #485454; */
+}
+
+.titles {
+  padding-top: 10px;
+  margin-bottom: 20px;
+/*  background-color: #CBF1FE; */
+  background-color: #F4B400; /* #CBF1FE; */
+/*  background-color: #0D8C40; /* #CBF1FE; */
+/*  background-color: #485454; */
+/*  color: #0D2C40; */
+  color: #fff;
+  font-size: 100%;
+  text-transform: uppercase;
+  display: block;
+  height: 2.5em;
+  text-align: center;
+}
+
+.table-shift {
+  margin-left: -70px;
+/*  border: 1px dashed blue; */
+  width: 40em;
+  padding-left: -20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 2px solid #F7F7F7;
+  padding-top: 5px;
+}
+
+.alert {
+  text-align: center;
+  font-weight: bold;
+}
+
+.btnwidth {
+  width: 5em;
+}
+
+/*
+#book-show {
+  margin-left: -70px;
+  width: 40em;
+}
+*/
+
+.price-class {
+  color: #fff000;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+#clear-cart-btn, #checkout-btn {
+  display: inline-block;
+}
+
+#cart-total {
+  padding-bottom: 1.5em;
+}
+
+#signup-link {
+  font-size: 200%;
+}
+
+.user-list {
+  padding-bottom: 5px;
+}
+
+#new-user-link {
+  padding-top: 30px;
+}
+
+#paginate {
+  border-bottom: 1px solid #F7F7F7;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #fff;
+}

@@ -1,0 +1,18 @@
+<section>
+  <div class='row'>
+    <div class='col-sm-10 col-sm-offset-1'>
+      <header>
+        <h3 class='titles'><%= "#{@author.full_name}" %>'s Profile</h3>
+      </header>
+    </div>
+  </div>
+</section>
+
+<% content_for(:sidebar) do %>
+  Actions
+  <hr class='sidebar-hr'>
+  <ul class='sidebar-link'>
+    <li><%= link_to 'Edit', edit_author_path, class: 'btn btn-primary btnwidth' %></li>
+  </ul>
+  <hr class='sidebar-hr'>
+<% end %>

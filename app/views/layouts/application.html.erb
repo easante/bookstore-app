@@ -9,38 +9,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <header role="banner">
-      <nav role="navigation" class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <%= link_to "Bookstore App", "#", class: "navbar-brand" %>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Authors", authors_path %></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%= render 'shared/header' %>
 
     <main role="main">
       <div class='container'>
-
-        <% flash.each do |name, msg| %>
-          <div class='alert alert-<%= "#{name}" %>'>
-            <a href='#' class='close' data-dismiss='alert' &#215;></a>
-            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-          </div>
-        <% end %>
-
+        <%= render 'shared/messages' %>
         <div class='row'>
           <div class='col-md-9'>
             <% if content_for?(:sidebar) %>
@@ -64,22 +37,14 @@
           </div>
           <div class='col-md-3'>
             <div id="cart">
-              <%= render @cart if @cart %>
+              <%#= render @cart if @cart %>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-10 col-md-offset-1 footer'>
-          <footer role="contentinfo">
-            <p><small>Copyright &copy; Emmanuel Training Services</small></p>
-          </footer>
-        </div>
-      </div>
-    </div>
+    <%= render 'shared/footer' %>
 
   </body>
 </html>
