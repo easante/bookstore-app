@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005082245) do
+ActiveRecord::Schema.define(version: 20141012142945) do
 
   create_table "authors", force: true do |t|
     t.string   "first_name"
@@ -19,5 +19,13 @@ ActiveRecord::Schema.define(version: 20141005082245) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "publishers", force: true do |t|
+    t.string   "name",       limit: 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "publishers", ["name"], name: "index_publishers_on_name", unique: true
 
 end
