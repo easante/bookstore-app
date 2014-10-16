@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016150327) do
+ActiveRecord::Schema.define(version: 20141016154833) do
 
   create_table "authors", force: true do |t|
     t.string   "first_name"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20141016150327) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "books", force: true do |t|
+    t.string   "title"
+    t.string   "isbn",         limit: 13
+    t.text     "description"
+    t.date     "published_at"
+    t.integer  "publisher_id"
+    t.integer  "page_count"
+    t.decimal  "price",                   precision: 16, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["publisher_id"], name: "index_books_on_publisher_id"
 
   create_table "publications", force: true do |t|
     t.integer  "author_id"
