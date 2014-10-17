@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :publisher
   has_many :publications, dependent: :destroy
+  has_many :authors, through: :publications
 
   validates :title, presence: true
   validates :isbn, presence: true

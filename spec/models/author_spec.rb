@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Author do
+  it { should have_many(:publications) }
+  it { should have_many(:books).through(:publications) }
+
   it "requires a first name" do
     author = Fabricate.build(:author, first_name: nil)
 

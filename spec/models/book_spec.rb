@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Book do
   it { should belong_to(:publisher) }
   it { should have_many(:publications) }
+  it { should have_many(:authors).through(:publications) }
 
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:isbn) }
