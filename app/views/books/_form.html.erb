@@ -1,0 +1,59 @@
+<%= bootstrap_form_for(@book, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Title</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :title, class: 'form-control', hide_label: true, placeholder: 'Title of the book', autofocus: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Isbn</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :isbn, class: 'form-control', hide_label: true, placeholder: 'Book ISBN' %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Page count</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :page_count, class: 'form-control', hide_label: true, placeholder: 'Number of pages' %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Price</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :price, class: 'form-control', hide_label: true, placeholder: 'Book unit price' %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Description</label>
+    <div class='col-sm-9'>
+      <%= f.text_area :description, class: 'form-control', hide_label: true, placeholder: 'Book description' %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Publication date</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :published_at, placeholder: 'Date format: yyyy-mm-dd', class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Publisher</label>
+    <div class='col-sm-9'>
+      <%= f.select :publisher_id, @publishers.map { |p| [p.name, p.id] },
+                      prompt: 'Select a publisher', class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Authors</label>
+    <div class='col-sm-9'>
+      <%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+
+  <%# end %>
+  <div class='form-group actions control-group'>
+    <div class='col-sm-offset-3'>
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
