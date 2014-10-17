@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, except: [:index, :new, :create, :search]
+  before_action :set_book, except: [:index, :new, :create]
 
   def index
     @books = Book.all
@@ -18,16 +18,21 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+#    require 'pry'; binding.pry
     if @book.save
       flash[:success] = 'Book has been created.'
       redirect_to @book
     else
       flash.now[:danger] = 'Book has not been created.'
+      @publishers = Publisher.all
+      @authors = Author.all
       render :new
     end
   end
 
   def edit
+      @publishers = Publisher.all
+      @authors = Author.all
   end
 
   def update
@@ -50,8 +55,7 @@ class BooksController < ApplicationController
   private
     def book_params
       params.require(:book).permit(:title, :isbn, :page_count, :price, :description,
-                                   :published_at, :publisher_id, :book_cover,
-                                   author_ids: [])
+                                   :published_at, :publisher_id, author_ids: [])
     end
 
     def set_book
