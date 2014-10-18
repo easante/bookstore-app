@@ -12,9 +12,10 @@
       <%= link_to book.title, book_path(book) %><br>
       <span class='price-class'><%= number_to_currency(book.price) %></span>
     </p>
+    <p class='book-image'><%= image_tag(book.book_cover_url(:thumb)) if book.book_cover? %></p>
     <div>
       <hr>
-    <div>
+    </div>
   <% end %>
   <br>
   <p><%= link_to 'Add New book', add_book_path, class: 'btn btn-primary' %></p>

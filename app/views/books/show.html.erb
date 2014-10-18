@@ -75,6 +75,18 @@
       <div class='col-sm-12'>
         <hr>
       </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Book cover:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= image_tag(@book.book_cover_url) if @book.book_cover? %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
     </div>
   </div>
 </section>

@@ -5,5 +5,6 @@ Fabricator(:book) do
   page_count { Faker::Number.number(4) }
   description { Faker::Lorem.paragraph }
   published_at 1.year.ago
+  book_cover { Faker::Name.name }
   publisher
 end

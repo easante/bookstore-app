@@ -1,6 +1,8 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
   background: #0D2C40; /*#C879B2; */
@@ -46,13 +48,20 @@ body {
 /*  border: 2px solid #485454; */
 }
 
+.cartless {
+  color: #F4B400;
+}
+
+.details {
+  padding-bottom: 10px;
+}
+
 .titles {
   padding-top: 10px;
   margin-bottom: 20px;
 /*  background-color: #CBF1FE; */
   background-color: #F4B400; /* #CBF1FE; */
 /*  background-color: #0D8C40; /* #CBF1FE; */
-/*  background-color: #485454; */
 /*  color: #0D2C40; */
   color: #fff;
   font-size: 100%;
@@ -67,6 +76,10 @@ body {
 /*  border: 1px dashed blue; */
   width: 40em;
   padding-left: -20px;
+}
+
+.book-title {
+  margin-right: 10px;
 }
 
 footer {
