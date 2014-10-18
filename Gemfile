@@ -17,6 +17,11 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.0'
 
+gem 'carrierwave-dropbox', '1.2.1'
+gem 'mini_magick', '3.8.0'
+
+gem 'figaro', '0.7.0'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
