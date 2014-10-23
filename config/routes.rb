@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :authors
   resources :publishers, except: [:new]
   resources :books, except: [:new]
+  resources :users, only: [:new, :create, :show]
 end
