@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   get '/add_publisher', to: 'publishers#new', as: 'add_publisher'
   get '/add_book', to: 'books#new', as: 'add_book'
+  get '/signup', to: 'users#new', as: 'signup'
 
   resources :authors
   resources :publishers, except: [:new]
   resources :books, except: [:new]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:create, :show]
 end

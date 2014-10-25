@@ -12,13 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = 'User has been created.'
-      if session[:intended_destination]
-        session[:user_id] = @user.id
-        redirect_to session[:intended_destination]
-        session[:intended_destination] = nil
-      else
-        redirect_to @user
-      end
+      redirect_to @user
     else
       flash[:danger] = 'User has not been created.'
       render :new
