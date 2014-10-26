@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/signin', to: 'sessions#new', as: 'signin'
+  post '/signin', to: 'sessions#create'
+
   root 'catalogs#index'
 
   get '/add_publisher', to: 'publishers#new', as: 'add_publisher'
@@ -9,4 +12,5 @@ Rails.application.routes.draw do
   resources :publishers, except: [:new]
   resources :books, except: [:new]
   resources :users, only: [:create, :show]
+  #resource :session, only: [:create]
 end
