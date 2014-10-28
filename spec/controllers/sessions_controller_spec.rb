@@ -48,4 +48,18 @@ describe SessionsController do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    it "logs the user out" do
+      session[:user_id] = user.id
+
+      delete :destroy, id: user.id
+      expect(session[:user_id]).to be_nil
+    end
+
+    it "redirects to the root path" do
+      delete :destroy
+      expect(response).to redirect_to root_path
+    end
+  end
 end

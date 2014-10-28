@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :publishers, except: [:new]
   resources :books, except: [:new]
   resources :users, only: [:create, :show]
-  #resource :session, only: [:create]
+  resource :session, only: [:destroy]
 end
