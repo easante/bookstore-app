@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@author, :html => {class: "form-horizontal"}) do |f| %>
+<%= bootstrap_form_for([:admin, @author], :html => {class: "form-horizontal"}) do |f| %>
   <div class='form-group'>
     <label for='first_name' class='control-label col-sm-3'>First name</label>
     <div class='col-sm-9'>
