@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Admin::BooksController < Admin::BaseController
   before_action :set_book, except: [:index, :new, :create]
 
   def index
@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 #    require 'pry'; binding.pry
     if @book.save
       flash[:success] = 'Book has been created.'
-      redirect_to @book
+      redirect_to [:admin, @book]
     else
       flash.now[:danger] = 'Book has not been created.'
       @publishers = Publisher.all
@@ -38,9 +38,11 @@ class BooksController < ApplicationController
   def update
     if @book.update(book_params)
       flash[:success] = 'Book has been updated.'
-      redirect_to @book
+      redirect_to [:admin, @book]
     else
       flash[:danger] = 'Book has not been updated.'
+      @publishers = Publisher.all
+      @authors = Author.all
       render :edit
     end
   end
@@ -48,7 +50,7 @@ class BooksController < ApplicationController
   def destroy
     if @book.destroy
       flash[:success] = 'Book has been deleted.'
-      redirect_to books_path
+      redirect_to admin_books_path
     end
   end
 

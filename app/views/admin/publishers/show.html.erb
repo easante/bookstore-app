@@ -12,8 +12,8 @@
   Actions
   <hr class='sidebar-hr'>
   <ul class='sidebar-link'>
-    <li><%= link_to 'Edit', edit_publisher_path(@publisher), class: 'btn btn-default btnwidth' %></li>
-    <li><%= link_to 'Delete', publisher_path(@publisher), method: :delete, class: 'btn btn-default btnwidth',
+    <li><%= link_to 'Edit', [:edit, :admin, @publisher], class: 'btn btn-default btnwidth' %></li>
+    <li><%= link_to 'Delete', [:admin, @publisher], method: :delete, class: 'btn btn-default btnwidth',
         data: { confirm: "Are you sure you want to delete #{@publisher.name}?"} %></li>
   </ul>
   <hr class='sidebar-hr'>

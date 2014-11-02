@@ -1,6 +1,13 @@
 require 'spec_helper'
 
-describe PublishersController do
+describe Admin::PublishersController do
+
+  let(:admin) { Fabricate(:admin) }
+
+  before do
+    session[:user_id] = admin.id
+  end
+
   describe "GET #new" do
     it "assigns a new publisher object to @publisher variable" do
       get :new
@@ -52,7 +59,7 @@ describe PublishersController do
 
       it "redirects to the show action" do
         post :create, publisher: Fabricate.attributes_for(:publisher)
-        expect(response).to redirect_to publisher_path(Publisher.first)
+        expect(response).to redirect_to admin_publisher_path(Publisher.first)
       end
 
       it "sets the success flash message" do
@@ -103,7 +110,7 @@ describe PublishersController do
 
       it "redirects to the show action" do
         put :update, publisher: Fabricate.attributes_for(:publisher, name: 'Paul'), id: publisher.id
-        expect(response).to redirect_to publisher_path(Publisher.first)
+        expect(response).to redirect_to admin_publisher_path(Publisher.first)
       end
 
       it "sets the success flash message" do
@@ -147,7 +154,7 @@ describe PublishersController do
 
     it 'redirects to the index page' do
       delete :destroy, id: publisher
-      expect(response).to redirect_to publishers_path
+      expect(response).to redirect_to admin_publishers_path
     end
   end
 

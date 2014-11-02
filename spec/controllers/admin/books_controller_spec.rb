@@ -1,6 +1,12 @@
 require 'spec_helper'
 
-describe BooksController do
+describe Admin::BooksController do
+  let(:admin) { Fabricate(:admin) }
+
+  before do
+    session[:user_id] = admin.id
+  end
+
   describe "GET #new" do
     it "assigns a new book object to @book variable" do
       get :new
@@ -52,7 +58,7 @@ describe BooksController do
 
       it "redirects to the show action" do
         post :create, book: Fabricate.attributes_for(:book)
-        expect(response).to redirect_to book_path(Book.first)
+        expect(response).to redirect_to admin_book_path(Book.first)
       end
 
       it "sets the success flash message" do
@@ -103,7 +109,7 @@ describe BooksController do
 
       it "redirects to the show action" do
         put :update, book: Fabricate.attributes_for(:book, title: 'Paul'), id: book.id
-        expect(response).to redirect_to book_path(Book.first)
+        expect(response).to redirect_to admin_book_path(Book.first)
       end
 
       it "sets the success flash message" do
@@ -147,7 +153,7 @@ describe BooksController do
 
     it 'redirects to the index page' do
       delete :destroy, id: book
-      expect(response).to redirect_to books_path
+      expect(response).to redirect_to admin_books_path
     end
   end
 

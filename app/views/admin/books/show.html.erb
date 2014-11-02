@@ -1,0 +1,103 @@
+<section>
+  <div class='row'>
+    <div class='col-sm-12 cartless'>
+      <header class='col-sm-12'>
+        <h3 class='titles' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
+      </header>
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>ISBN:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= @book.isbn %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Page count:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= @book.page_count %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Price:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= number_to_currency(@book.price) %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Description:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= @book.description %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Publisher:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= @book.publisher.name %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Published at:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= @book.published_at %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+
+      <div class='col-sm-12'>
+        <div class='col-sm-3'>
+          <strong>Book cover:</strong>
+        </div>
+        <div class='col-sm-9'>
+          <%= image_tag(@book.book_cover_url) if @book.book_cover? %>
+        </div>
+      </div>
+      <div class='col-sm-12'>
+        <hr>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for(:sidebar) do %>
+  <h4 class='cartless'>Actions</h4>
+  <hr class='sidebar-hr'>
+  <ul class='sidebar-link'>
+    <li><%= link_to 'Edit', [:edit, :admin, @book], class: 'btn btn-default btnwidth' %></li>
+    <li><%= link_to 'Delete', [:admin, @book], method: :delete, class: 'btn btn-default btnwidth',
+        data: { confirm: "Are you sure you want to delete #{@book.title}?"} %></li>
+  </ul>
+  <hr class='sidebar-hr'>
+<% end %>

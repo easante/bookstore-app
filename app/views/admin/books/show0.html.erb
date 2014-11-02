@@ -1,0 +1,56 @@
+<section class='container'>
+  <div class='row'>
+    <div class='col-sm-8 col-sm-offset-1'>
+      <header>
+        <h3 class='titles' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
+      </header>
+      <table class='table table-shift'>
+        <tr>
+          <td><strong>ISBN:</strong></td>
+          <td><%= @book.isbn %></td>
+        </tr>
+        <tr>
+          <td><strong>Page count:</strong></td>
+          <td><%= @book.page_count %></td>
+        </tr>
+        <tr>
+          <td><strong>Price:</strong></td>
+          <td><%= number_to_currency(@book.price) %></td>
+        </tr>
+        <tr>
+          <td><strong>Description:</strong></td>
+          <td><%= @book.description %></td>
+        </tr>
+        <tr>
+          <td><strong>Publisher:</strong></td>
+          <td><%= @book.publisher.name %></td>
+        </tr>
+        <tr>
+          <td><strong>Published at:</strong></td>
+          <td><%= @book.published_at %></td>
+        </tr>
+        <% @book.authors.each do |author| %>
+          <tr>
+            <td><strong>Author:</strong></td>
+            <td><%= author.full_name %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td><strong>Book cover:</strong></td>
+          <td><%= image_tag(@book.book_cover_url) if @book.book_cover? %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<% content_for(:sidebar) do %>
+  Actions
+  <hr class='sidebar-hr'>
+  <ul class='sidebar-link'>
+    <li><%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default btnwidth' %></li>
+    <li><%= link_to 'Delete', book_path(@book), method: :delete, class: 'btn btn-default btnwidth',
+        data: { confirm: "Are you sure you want to delete #{@book.title}?"} %></li>
+  </ul>
+  <hr class='sidebar-hr'>
+<% end %>

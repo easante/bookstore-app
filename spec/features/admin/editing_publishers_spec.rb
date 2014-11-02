@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 feature 'Editing Publishers' do
+  let(:admin) { Fabricate(:admin) }
   let!(:publisher) { Fabricate(:publisher) }
+
+  before do
+    sign_in_as admin
+  end
 
   scenario 'successfully editing an publisher' do
     visit root_path

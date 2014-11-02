@@ -13,6 +13,7 @@
   <hr class='sidebar-hr'>
   <ul class='sidebar-link'>
     <li><%= link_to 'Edit', [:edit, :admin, @author], class: 'btn btn-primary btnwidth' %></li>
+    <li><%= link_to 'Delete', [:admin, @author], method: :delete, class: 'btn btn-primary btnwidth' %></li>
   </ul>
   <hr class='sidebar-hr'>
 <% end %>

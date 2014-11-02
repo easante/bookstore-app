@@ -1,0 +1,22 @@
+
+<section>
+  <header>
+    <% if @books.empty? %>
+      <h3>No Books Defined</h3>
+    <% else %>
+      <h3 class="titles">All Books</h3>
+    <% end %>
+  </header>
+  <% @books.each do |book| %>
+    <p class='book-title'>
+      <%= link_to book.title, [:admin, book] %><br>
+      <span class='price-class'><%= number_to_currency(book.price) %></span>
+    </p>
+    <p class='book-image'><%= image_tag(book.book_cover_url(:thumb)) if book.book_cover? %></p>
+    <div>
+      <hr>
+    </div>
+  <% end %>
+  <br>
+  <p><%= link_to 'Add New book', add_book_path, class: 'btn btn-primary' %></p>
+</section>

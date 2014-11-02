@@ -7,7 +7,7 @@
     <% end %>
   </header>
   <% @publishers.each do |publisher| %>
-    <%= link_to publisher.name, publisher_path(publisher) %><br>
+    <%= link_to publisher.name, [:admin, publisher] %><br>
   <% end %>
   <br>
   <p><%= link_to 'Add New publisher', add_publisher_path, class: 'btn btn-primary' %></p>

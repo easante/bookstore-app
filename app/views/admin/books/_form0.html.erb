@@ -1,0 +1,78 @@
+<%= bootstrap_form_for(@book, :html => {:class => "form-horizontal"}) do |f| %>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Title</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :title, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Isbn</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :isbn, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Page count</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :page_count, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Price</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :price, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Description</label>
+    <div class='col-sm-9'>
+      <%= f.text_area :description, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Published at</label>
+    <div class='col-sm-9'>
+      <%= f.text_field :published_at, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Publisher</label>
+    <div class='col-sm-9'>
+      <%= f.select :publisher_id, Publisher.all.map { |p| [p.name, p.id] },
+                      prompt: 'Select a publisher', class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Book cover</label>
+    <div class='col-sm-9'>
+      <%= f.file_field :book_cover, class: 'form-control', hide_label: true %>
+    </div>
+  </div>
+
+  <%= f.fields_for :publications do |pub| %>
+    <div class='form-group' id='authors'>
+      <label class='control-label col-sm-3'>Author</label>
+      <div class='col-sm-9'>
+        <%= pub.select :author_id, options_for_select(Author.all.collect { |a| [a.full_name, a.id] }),
+                          prompt: 'Select an author', class: 'form-control', hide_label: true  %>
+      </div>
+    </div>
+  <% end %>
+<!--
+  <div class='form-group' id='authors'>
+    <%= render partial: 'publications/publication' %>
+  </div>
+-->
+  <div class='col-sm-9'>
+    <%#= link_to 'Add another author', 'javascript:', id: 'add-author' %>
+    <%= link_to 'Add another author', new_publication_path, remote: true,
+                    update: 'authors', position: 'after', id: 'add-author' %>
+  </div>
+  <%# end %>
+  <div class='form-group actions control-group'>
+    <div class='col-sm-offset-3'>
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

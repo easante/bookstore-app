@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature 'Creating Publishers' do
+  let(:admin) { Fabricate(:admin) }
+
+  before do
+    sign_in_as admin
+  end
+
   scenario 'create a valid publisher' do
     visit root_path
     click_link 'Publishers'
@@ -21,5 +27,6 @@ feature 'Creating Publishers' do
     click_button 'Create Publisher'
 
     expect(page).to have_content('Publisher has not been created.')
+    expect(page).to have_content("can't be blank")
   end
 end
