@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AuthorsController do
+describe Admin::AuthorsController do
   let(:admin) { Fabricate(:admin) }
 
   before { set_admin_user admin }
@@ -87,7 +87,7 @@ describe AuthorsController do
 
       it "redirects to the show action" do
         post :create, author: Fabricate.attributes_for(:author)
-        expect(response).to redirect_to author_path(Author.first)
+        expect(response).to redirect_to admin_author_path(Author.first)
       end
 
       it "sets the success flash message" do
@@ -163,7 +163,7 @@ describe AuthorsController do
 
       it "redirects to the show action" do
         put :update, author: Fabricate.attributes_for(:author, first_name: 'Paul'), id: author.id
-        expect(response).to redirect_to author_path(Author.first)
+        expect(response).to redirect_to admin_author_path(Author.first)
       end
 
       it "sets the success flash message" do
@@ -223,7 +223,7 @@ describe AuthorsController do
 
     it 'redirects to the index page' do
       delete :destroy, id: author
-      expect(response).to redirect_to authors_path
+      expect(response).to redirect_to admin_authors_path
     end
   end
 

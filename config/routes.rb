@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'base/index'
+    resources :authors
+  end
+
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/signin', to: 'sessions#create'
 
@@ -8,7 +13,6 @@ Rails.application.routes.draw do
   get '/add_book', to: 'books#new', as: 'add_book'
   get '/signup', to: 'users#new', as: 'signup'
 
-  resources :authors
   resources :publishers, except: [:new]
   resources :books, except: [:new]
   resources :users, only: [:create, :show]
