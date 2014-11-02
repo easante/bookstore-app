@@ -2,12 +2,19 @@ require 'spec_helper'
 
 feature 'Editing Books' do
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
+
   let!(:book) { Fabricate(:book) }
   let!(:wiley) { Fabricate(:publisher, name: 'Wiley') }
 
   before do
     sign_in_as admin
   end
+
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Books')
+  end
+
   scenario 'successfully editing a book' do
     visit root_path
     click_link 'Books'

@@ -11,12 +11,19 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Authors", admin_authors_path %></li>
-          <li><%= link_to "Publishers", admin_publishers_path %></li>
-          <li><%= link_to "Books", admin_books_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li><%= link_to "Sign in", signin_path %></li>
-          <li><%= link_to "Sign out", session_path, method: :delete %></li>
+          <% if current_user && current_user.admin? %>
+            <li class="active"><%= link_to "Authors", admin_authors_path %></li>
+            <li><%= link_to "Publishers", admin_publishers_path %></li>
+            <li><%= link_to "Books", admin_books_path %></li>
+            <li><%= link_to "Users", admin_users_path %></li>
+          <% end %>
+
+          <% unless current_user %>
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% else %>
+            <li><%= link_to "Sign out", session_path, method: :delete %></li>
+          <% end %>
         </ul>
       </div>
     </div>

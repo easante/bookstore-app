@@ -2,10 +2,15 @@ require 'spec_helper'
 
 feature 'Deleting Publishers' do
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
   let!(:publisher) { Fabricate(:publisher) }
 
   before do
     sign_in_as admin
+  end
+
+  scenario 'deleting an publisher' do
+    deny_access_to_non_admins(user, 'Publishers')
   end
 
   scenario 'deleting an publisher' do

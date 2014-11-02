@@ -2,10 +2,15 @@ require 'spec_helper'
 
 feature 'Editing Publishers' do
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
   let!(:publisher) { Fabricate(:publisher) }
 
   before do
     sign_in_as admin
+  end
+
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Publishers')
   end
 
   scenario 'successfully editing an publisher' do

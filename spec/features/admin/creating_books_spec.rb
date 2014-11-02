@@ -5,11 +5,15 @@ feature 'Creating Books' do
   let!(:author1) { Fabricate(:author, first_name: 'Agatha', last_name: 'Christie') }
   let!(:author2) { Fabricate(:author, first_name: 'Ryan', last_name: 'Bigg') }
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
   before do
     sign_in_as admin
   end
 
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Books')
+  end
 
   scenario 'create a valid book' do
     visit root_path

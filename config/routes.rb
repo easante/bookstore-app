@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'base/index'
     resources :authors
+    resources :users
     resources :publishers, except: [:new]
     resources :books, except: [:new]
   end

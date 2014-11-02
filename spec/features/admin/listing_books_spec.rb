@@ -4,11 +4,15 @@ feature 'Listing Books' do
   let!(:book1) { Fabricate(:book) }
   let!(:book2) { Fabricate(:book) }
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
   before do
     sign_in_as admin
   end
 
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Books')
+  end
   scenario 'successfully list all books' do
     visit root_path
 

@@ -2,8 +2,13 @@ require 'spec_helper'
 
 feature 'Creating Authors' do
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
   before { sign_in_as admin }
+
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Authors')
+  end
 
   scenario 'create a valid author' do
     visit root_path

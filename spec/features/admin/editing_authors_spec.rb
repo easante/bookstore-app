@@ -3,8 +3,13 @@ require 'spec_helper'
 feature 'Editing Authors' do
   let!(:author) { Fabricate(:author) }
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
   before { sign_in_as admin }
+
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Authors')
+  end
 
   scenario 'successfully editing an author' do
     visit root_path

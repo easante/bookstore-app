@@ -2,9 +2,14 @@ require 'spec_helper'
 
 feature 'Deleting Books' do
   let(:admin) { Fabricate(:admin) }
+  let(:user) { Fabricate(:user) }
 
   before do
     sign_in_as admin
+  end
+
+  scenario 'access to non-admin users not allowed' do
+    deny_access_to_non_admins(user, 'Books')
   end
 
   scenario 'deleting a book' do

@@ -1,0 +1,24 @@
+
+<section>
+  <header>
+    <% if @users.empty? %>
+      <h3>No Users Created</h3>
+    <% else %>
+      <h3 class="titles">All Users</h3>
+    <% end %>
+  </header>
+  <div class='col-sm-10'>
+    <% @users.each do |user| %>
+      <div class='col-sm-8 col-sm-offset-2 user-list'>
+        <%= link_to user.email, admin_user_path(user) %>
+      </div>
+      <br>
+    <% end %>
+
+    <div class='col-sm-offset-2' id='new-user-link'>
+      <%= link_to 'Add New user', new_admin_user_path, class: 'btn btn-primary' %>
+    </div>
+</div>
+  <br>
+
+</section>
