@@ -12,4 +12,8 @@ class Book < ActiveRecord::Base
   validates :price, numericality: { greater_than_or_equal_to: 0.0 }
 
   mount_uploader :book_cover, BookCoverUploader
+
+  def self.search_by_title(title)
+    where('title LIKE ?', "%#{title}%").order(:title)
+  end
 end

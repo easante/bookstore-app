@@ -55,3 +55,4 @@ Book.create!(title: 'Introduction to Object-oriented Analysis and Design with UM
 
 
   User.create(email:'emmanuel@example.com', first_name:'Emmanuel', last_name:'Asante', password:'password', admin: true)
+  User.create(email:'john@example.com', first_name:'John', last_name:'Doe', password:'password', admin: false)

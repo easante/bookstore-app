@@ -1,2 +1,34 @@
-<h1>Catalogs#index</h1>
-<p>Find me in app/views/catalogs/index.html.erb</p>
+<article>
+  <%= form_tag(search_catalogs_path, html: { class: 'col-sm-12' } ) do %>
+    <div class="form-group col-sm-8">
+      <%= text_field_tag :search_word, nil, placeholder: "Search for books here", class: "form-control" %>
+    </div>
+    <div class='col-sm-4'>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</article>
+<br>
+<br>
+<section>
+  <header>
+    <% if @books.empty? %>
+      <h3>No Books Found</h3>
+    <% else %>
+      <h3 class="titles">All Books</h3>
+    <% end %>
+  </header>
+
+  <% @books.each do |book| %>
+    <p class="book-title">
+      <%= link_to book.title, catalog_path(book) %><br>
+      <span class='price-class'><%= number_to_currency(book.price) %></span>
+    </p>
+
+    <p class='book-image'><%= image_tag(book.book_cover_url(:thumb)) if book.book_cover? %></p>
+    <div>
+      <hr>
+    </div>
+  <% end %>
+  <br>
+</section>

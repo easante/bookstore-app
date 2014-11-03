@@ -1,0 +1,11 @@
+<article>
+  <div class='row'>
+    <% @books.each do |book| %>
+      <label class='col-sm-9'><%= link_to book.title, book %></label><br>
+      <div class='col-sm-4'>
+        <%= link_to image_tag(book.book_cover_url(:thumb)), book %>
+      </div>
+      <hr class='col-sm-9'>
+    <% end %>
+  </div>
+</article>
