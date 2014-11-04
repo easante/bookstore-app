@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Cart do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:cart_items) }
+  it { should have_many(:books).through(:cart_items) }
 end

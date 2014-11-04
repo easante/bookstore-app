@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   resources :books, only: [:show]
   resources :users, only: [:create, :show]
   resource :session, only: [:destroy]
-  resource :carts, only: [:show, :destroy]
+  resources :carts, only: [:show, :destroy]
+  resources :cart_items, only: [:create]
   resources :catalogs, only: [:index, :show] do
     collection do
       post :search, to: 'catalogs#search'
