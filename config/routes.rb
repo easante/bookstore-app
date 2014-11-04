@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   namespace :admin do
     get 'base/index'
     resources :authors
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   resources :books, only: [:show]
   resources :users, only: [:create, :show]
   resource :session, only: [:destroy]
+  resource :carts, only: [:show, :destroy]
   resources :catalogs, only: [:index, :show] do
     collection do
       post :search, to: 'catalogs#search'
