@@ -16,7 +16,7 @@ class Cart < ActiveRecord::Base
   end
 
   def total_sale
-    require 'pry';binding.pry
+    #require 'pry';binding.pry
     cart_items.map {|ci| ci.quantity * ci.price }.reduce(:+)
   end
 end
