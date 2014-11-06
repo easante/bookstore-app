@@ -89,7 +89,7 @@
       </div>
 
       <div class='col-sm-10'>
-        <%= button_to "Add to cart", cart_items_path(book_id: @book.id), class: "btn btn-default" %>
+        <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: "btn btn-default" %>
       </div>
     </div>
   </div>

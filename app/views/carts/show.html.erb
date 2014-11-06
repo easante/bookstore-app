@@ -1,17 +1,2 @@
-<section>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-1">
-      <header>
-        <h3 class="titles" id="book-show">Your Shopping Cart</h3>
-      </header>
+<%= render @cart %>
 
-      <% @cart.cart_items.each do |item| %>
-        <%= item.quantity %>&times;<%= item.book.title %><%= "#{number_to_currency(item.line_total)}" %><br>
-      <% end %>
-      <hr>
-      <strong>Total: </strong><%= number_to_currency(@cart.total_sale) %>
-
-      <%= button_to "Clear cart", cart_path(@cart), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-  </div>
-</section>

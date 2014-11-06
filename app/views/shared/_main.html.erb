@@ -2,6 +2,7 @@
   <div class='container'>
     <%= render 'shared/messages' %>
     <div class='row'>
+
       <div class='col-md-9'>
         <% if content_for?(:sidebar) %>
           <div class='col-md-4 left'>
@@ -22,11 +23,13 @@
           </div>
         <% end %>
       </div>
+
       <div class='col-md-3'>
         <div id="cart">
-          <%#= render @cart if @cart %>
+          <%= render @cart if @cart %>
         </div>
       </div>
+
     </div>
   </div>
 </main>
