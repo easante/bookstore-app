@@ -7,6 +7,7 @@ class CatalogsController < ApplicationController
   def show
     @book = Book.find params[:id]
     set_cart_if_session
+    #require 'pry';binding.pry
   end
 
   def search
