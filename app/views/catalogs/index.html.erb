@@ -19,6 +19,10 @@
     <% end %>
   </header>
 
+  <div id="paginate">
+    <%= paginate @books %>
+  </div>
+
   <% @books.each do |book| %>
     <p class='book-title'>
       <%= link_to book.title, catalog_path(book) %><br>
