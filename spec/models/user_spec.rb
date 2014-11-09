@@ -33,4 +33,7 @@ describe User do
 
     expect(john.full_name).to eq('John Doe')
   end
+
+  it { should have_many(:addresses) }
+  it { should accept_nested_attributes_for(:addresses) }
 end
