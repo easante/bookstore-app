@@ -32,7 +32,7 @@ describe UsersController do
     context "successful user sign up" do
       it "redirects to the user show path" do
         post :create, user: Fabricate.attributes_for(:user)
-        expect(response).to redirect_to user_path(User.first)
+        expect(response).to redirect_to signin_path
       end
     end
 
