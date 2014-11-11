@@ -36,3 +36,7 @@ def deny_access_to_non_admins(user, link)
   visit root_path
   expect(page).not_to have_link("#{link}", exact: true)
 end
+
+def set_current_cart(cart=nil)
+  session[:cart_id] = (cart || Fabricate(:cart)).id
+end

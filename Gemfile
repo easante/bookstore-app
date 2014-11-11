@@ -22,6 +22,7 @@ gem 'mini_magick', '3.8.0'
 
 gem 'figaro', '0.7.0'
 gem 'kaminari', '0.16.1'
+gem 'stripe', '1.15.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
