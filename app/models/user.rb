@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :addresses
+  has_many :orders
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false },

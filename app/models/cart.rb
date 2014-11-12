@@ -16,7 +16,12 @@ class Cart < ActiveRecord::Base
   end
 
   def total_sale
-    #require 'pry';binding.pry
-    cart_items.map {|ci| ci.quantity * ci.price }.reduce(:+)
+    sale = cart_items.map {|ci| ci.quantity * ci.price }.reduce(:+)
+    return 0.0 unless sale
+    sale
+  end
+
+  def total_sale_in_cents
+    (total_sale * 100 ).to_i
   end
 end

@@ -24,7 +24,10 @@ describe OrdersController do
 
   describe "POST #create" do
     let(:cart) { Fabricate(:cart) }
-    let!(:cart_item) { Fabricate(:cart_item, cart: cart) }
+    let!(:book) { Fabricate(:book) }
+    let!(:cart_item) { Fabricate(:cart_item, cart: cart, book: book) }
+    let!(:cart_items) { cart.cart_items << cart_item }
+
     let(:token) do
       Stripe::Token.create(
         :card => {
@@ -41,6 +44,7 @@ describe OrdersController do
     end
 
     it "saves the new order object" do
+#      require 'pry';binding.pry
       post :create, order: Fabricate.attributes_for(:order, user: john), stripeToken: token
       expect(Order.count).to eq(1)
     end
@@ -51,6 +55,8 @@ describe OrdersController do
     end
 
     it "should send an email to the user email address" do
+      ActionMailer::Base.deliveries = []
+
       post :create, order: Fabricate.attributes_for(:order, user: john), stripeToken: token
       expect(ActionMailer::Base.deliveries.last.to).to eq([john.email])
     end
