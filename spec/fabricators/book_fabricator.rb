@@ -1,5 +1,5 @@
 Fabricator(:book) do
-  title { Faker::Name.name }
+  title { Faker::Lorem.sentence }
   price { Faker::Commerce.price }
   isbn { Faker::Code.isbn }
   page_count { Faker::Number.number(4) }

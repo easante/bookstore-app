@@ -44,7 +44,6 @@ describe OrdersController do
     end
 
     it "saves the new order object" do
-#      require 'pry';binding.pry
       post :create, order: Fabricate.attributes_for(:order, user: john), stripeToken: token
       expect(Order.count).to eq(1)
     end
