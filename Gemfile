@@ -67,4 +67,5 @@ group :development do
   gem 'pry', '0.10.0'
   gem 'pry-nav', '0.2.4'
   gem 'thin', '1.6.2'
+  gem 'letter_opener', '1.2.0'
 end
