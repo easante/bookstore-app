@@ -1,5 +1,10 @@
 <% content_for(:head) do %>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+  <script type="text/javascript">
+  //Stripe.setPublishableKey("#{ENV['STRIPE_PUBLISHABLE_KEY']}");
+  </script>
+
   <%= javascript_tag "Stripe.setPublishableKey('#{ENV['STRIPE_PUBLISHABLE_KEY']}');" %>
   <%= javascript_include_tag 'order' %>
 <% end %>

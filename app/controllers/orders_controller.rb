@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
 
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       token = params[:stripeToken]
+      #  require 'pry';binding.pry
 
       begin
         charge = Stripe::Charge.create(
@@ -22,8 +23,6 @@ class OrdersController < ApplicationController
           currency: "usd",
           card: token
         )
-      #  require 'pry';binding.pry
-
         @order.save
         @cart.destroy
         session[:cart_id] = nil
@@ -31,7 +30,7 @@ class OrdersController < ApplicationController
         flash[:success] = "Order has been created."
         redirect_to root_path
       rescue Stripe::CardError => e
-        flash[:danger] = "Order has not been created."
+        flash[:danger] = "Order has not been created.\n" + e.message
         redirect_to root_path
       end
     end
