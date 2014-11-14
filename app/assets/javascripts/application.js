@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require order
+//= require carts
 // require_tree .
