@@ -24,5 +24,4 @@ feature 'Creating Orders' do
 
     expect(page).to have_content('Order has been created.')
   end
-
 end
