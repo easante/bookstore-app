@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       token = params[:stripeToken]
-       require 'pry';binding.pry
+      #require 'pry';binding.pry
 
       begin
         charge = Stripe::Charge.create(
