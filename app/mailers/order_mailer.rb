@@ -7,4 +7,12 @@ class OrderMailer < ActionMailer::Base
       to: @customer.email,
       subject: 'Order Confirmation'
   end
+
+  def send_password_reset_link(customer)
+    @customer = customer
+
+    mail from: 'Sales Department<sales@example.com>',
+      to: @customer.email,
+      subject: 'Resetting Your Password'
+  end
 end
