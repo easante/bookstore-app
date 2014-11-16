@@ -42,7 +42,6 @@ describe SessionsController do
     context "unsuccessful sign in" do
       it "renders the sign in template" do
         post :create, { email: user.email, password: "mypassword" }
-
         expect(response).to render_template :new
       end
     end
