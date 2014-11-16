@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SessionsController do
-  let!(:user) { Fabricate(:user) }
+  let(:user) { Fabricate(:user) }
 
   describe "GET #new" do
     context "unauthenticated users" do
@@ -11,7 +11,7 @@ describe SessionsController do
       end
     end
     context "authenticated users" do
-      it "redirects to the root path" do
+      it "redirects to the home page for authenticated users" do
         session[:user_id] = user.id
 
         get :new
@@ -23,7 +23,6 @@ describe SessionsController do
   describe "POST #create" do
     context "successful sign in" do
       before do
-        #require 'pry'; binding.pry
         post :create, { email: user.email, password: user.password }
       end
 
@@ -32,7 +31,7 @@ describe SessionsController do
       end
 
       it "sets the flash message" do
-        expect(flash[:success]).to eq ('Sign in successful.')
+        expect(flash[:success]).to eq('Sign in successful.')
       end
 
       it "creates a session record for valid inputs" do
@@ -58,7 +57,7 @@ describe SessionsController do
     end
 
     it "redirects to the root path" do
-      delete :destroy
+      delete :destroy, id: user.id
       expect(response).to redirect_to root_path
     end
   end
