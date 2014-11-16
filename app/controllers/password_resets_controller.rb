@@ -9,7 +9,7 @@ class PasswordResetsController < ApplicationController
       render template: '/password_resets/confirm_password_reset'
       false
     else
-      flash[:danger] = params[:email] ? "Email invalid." : "Email can't be blank."
+      flash[:danger] = params[:email].blank? ? "Email can't be blank." : "Email invalid."
       redirect_to reset_password_path
     end
   end
