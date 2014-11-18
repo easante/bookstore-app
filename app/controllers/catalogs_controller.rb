@@ -5,9 +5,13 @@ class CatalogsController < ApplicationController
   end
 
   def show
-    @book = Book.find params[:id]
-    set_cart_if_session
-    #require 'pry';binding.pry
+    begin
+      @book = Book.find params[:id]
+      set_cart_if_session
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = "Unfortunately that book is sold out"
+      redirect_to catalogs_path
+    end
   end
 
   def search
