@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,6 +48,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'rspec-rails', '2.14.1'
@@ -55,6 +59,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'fabrication', '2.11.3'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -72,3 +77,4 @@ group :development do
   gem 'thin', '1.6.2'
   gem 'letter_opener', '1.2.0'
 end
+
