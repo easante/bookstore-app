@@ -20,38 +20,38 @@
 Book.create!(title: 'JavaScript Visual Quickstart Guide', isbn: '9780321772978',
   page_count: 518, price: 38.75, description: 'A very cool and thorough js book',
   published_at: '2012-08-23', publisher_id: 3,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/negrino_js.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/negrino_js.jpg')))
 
 Book.create!(title: 'Gnuplot in Action', isbn: '9781933988399',
   page_count: 360, price: 66.37, description: 'A book on the awesome opensource plotting software',
   published_at: '2010-11-04', publisher_id: 4,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/gnuplot.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/gnuplot.jpg')))
 
 Book.create!(title: 'The Rails 3 Way', isbn: '9780321601667',
              page_count: 708, price: 49.99, description: 'The authoritative book on Rails 3',
   published_at: '2011-08-22', publisher_id: 2,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/rails3_way.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/rails3_way.jpg')))
 
 Book.create!(title: 'Practical Database Programming with Java', isbn: '9780470889404',
   page_count: 919, price: 120.37, description: 'Covers the practical considerations and applications in database programming using Java Netbeans IDE, JSP, JSF, and Java Beans',
   published_at: '2011-11-04', publisher_id: 1,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/practical_db.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/practical_db.jpg')))
 
 Book.create!(title: 'iText in Action', isbn: '9781935182610',
   page_count: 585, price: 59.99, description: 'This opensource Java library has been the most popular and most broadly used tool for programmatic creation and manipulation of PDF',
   published_at: '2011-08-23', publisher_id: 4,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/itext.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/itext.jpg')))
 
 Book.create!(title: 'The Art of R Programming', isbn: '9781593273842',
-  page_count: 373, price: 39.95, description: 'This book takes you on a guided tour of software development wih R, from basic types and data structures to advanced topics like closures, 
+  page_count: 373, price: 39.95, description: 'This book takes you on a guided tour of software development wih R, from basic types and data structures to advanced topics like closures,
   recursion and anonymous functions',
   published_at: '2011-11-04', publisher_id: 6,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/art_of_r.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/art_of_r.jpg')))
 
 Book.create!(title: 'Introduction to Object-oriented Analysis and Design with UML and Unified Process', isbn: '0071215107',
              page_count: 395, price: 49.99, description: 'It introduces the object-oriented systems analysis and design',
   published_at: '2004-08-25', publisher_id: 5,
-  book_cover: File.open(File.join(Rails.root, 'app/assets/images/ooa_design.jpg')))
+  book_cover: File.open(File.join(Rails.root, 'assets/images/ooa_design.jpg')))
 
 
   User.create(email:'emmanuel@example.com', first_name:'Emmanuel', last_name:'Asante', password:'password', admin: true)
