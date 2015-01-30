@@ -57,7 +57,7 @@ group :development, :test do
   gem 'rspec-rails', '2.14.1'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'rb-fsevent' #if `uname` =~ /Darwin/
   gem 'fabrication', '2.11.3'
   gem 'sqlite3'
 end
